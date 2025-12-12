@@ -3,42 +3,43 @@ name: Publish to NuGet
 on:
   push:
     tags:
-      - 'v*'  # 当推送v开头的标签时触发
+      - 'v*'
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+    
+    # 关键：必须要有这些权限设置
     permissions:
-      id-token: write  # 重要：这是Trusted Publishing需要的
+      id-token: write  # 必须！用于OIDC认证
       contents: read
     
     steps:
-      - name: 检出代码
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          
-      - name: 设置.NET环境
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: '8.x'
-          
-      - name: 恢复依赖
-        run: dotnet restore
-        
-      - name: 构建项目
-        run: dotnet build --configuration Release --no-restore
-        
-      - name: 打包NuGet包
-        run: dotnet pack --configuration Release --no-build --output ./artifacts
-        
-      - name: 发布到NuGet
-        run: |
-          # 获取最新的.nupkg文件
-          PACKAGE=$(ls ./artifacts/*.nupkg | head -1)
-          echo "发布包: $PACKAGE"
-          
-          # 使用OIDC认证（Trusted Publishing）
-          dotnet nuget push $PACKAGE \
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '8.x'
+    
+    - name: Restore dependencies
+      run: dotnet restore
+    
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+    
+    - name: Create NuGet package
+      run: dotnet pack --configuration Release --no-build --output ./nupkg
+    
+    - name: Publish to NuGet
+      run: |
+        cd nupkg
+        for pkg in *.nupkg
+        do
+          echo "Publishing $pkg"
+          # 使用OIDC认证，不需要API密钥
+          dotnet nuget push $pkg \
             --source https://api.nuget.org/v3/index.json \
             --skip-duplicate
+        done
