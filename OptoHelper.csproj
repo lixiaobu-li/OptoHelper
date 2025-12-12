@@ -1,9 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
+		<!-- 支持多个目标框架 -->
 		<TargetFrameworks>net48;netstandard2.0</TargetFrameworks>
+
+		<!-- 包信息 -->
 		<PackageId>OptoHelper</PackageId>
-		<Version>1.0.1</Version>
+		<Version>1.0.2</Version>
+		<!-- 发布新版本，记得每次更新都改版本号 -->
 		<Authors>lixiaobu-li</Authors>
 		<Company>OptoHelper</Company>
 		<Description>A modular .NET helper library with logging, IO, network and more.</Description>
@@ -12,13 +16,24 @@
 		<RepositoryType>git</RepositoryType>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageTags>logging;log;helper;utility;dotnet;csharp</PackageTags>
+
+		<!-- 输出设置 -->
 		<OutputType>Library</OutputType>
+
+		<!-- 开启可空引用类型 -->
 		<Nullable>enable</Nullable>
-		<GenerateDocumentationFile>true</GenerateDocumentationFile>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+		<!-- 编译语言版本 -->
 		<LangVersion>8.0</LangVersion>
+
+		<!-- 生成文档 XML -->
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+		<!-- 构建时自动生成 NuGet 包 -->
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
 
+	<!-- 包含 README 文件 -->
 	<ItemGroup>
 		<None Include="README.md" Pack="true" PackagePath="\" />
 	</ItemGroup>

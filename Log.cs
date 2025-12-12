@@ -4,16 +4,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 
-namespace PPI.operation_Log
+namespace OptoHelper.Log
 {
-    internal class Log
+    public static class Log
     {
         private static readonly object _lock = new object();
 
         // ================================
         //      INI 文件读取工具
         // ================================
-
         [DllImport("kernel32")]
         private static extern int GetPrivateProfileString(
             string section, string key, string defaultValue,
@@ -32,7 +31,6 @@ namespace PPI.operation_Log
         // ================================
         //      配置参数读取
         // ================================
-
         private static bool EnableLog =>
             ReadIni("Log", "EnableLog", "true").ToLower() == "true";
 
@@ -49,7 +47,6 @@ namespace PPI.operation_Log
         // ================================
         //      对外方法：异步
         // ================================
-
         public static Task InfoAsync(string message) =>
             WriteLogAsync("INFO", message);
 
@@ -62,7 +59,6 @@ namespace PPI.operation_Log
         // ================================
         //      对外方法：同步
         // ================================
-
         public static void Info(string message) =>
             WriteLog("INFO", message);
 
@@ -75,7 +71,6 @@ namespace PPI.operation_Log
         // ================================
         //      日志写入（异步）
         // ================================
-
         private static async Task WriteLogAsync(string level, string message)
         {
             if (!EnableLog) return;
@@ -105,7 +100,6 @@ namespace PPI.operation_Log
         // ================================
         //      日志写入（同步）
         // ================================
-
         private static void WriteLog(string level, string message)
         {
             if (!EnableLog) return;
@@ -131,7 +125,6 @@ namespace PPI.operation_Log
         // ================================
         //      自动删除过期日志
         // ================================
-
         private static void CleanupOldLogs()
         {
             try

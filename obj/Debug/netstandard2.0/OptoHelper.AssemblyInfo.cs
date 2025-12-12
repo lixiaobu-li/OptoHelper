@@ -14,11 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OptoHelper")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("A modular .NET helper library with logging, IO, network and more.")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.1.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.1+45e6cc698452a4a66a4f2b841bf3ffa34bf359e3")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.2.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.2+bc3b1c5f236b48c71a6618b81081da0787434ab1")]
 [assembly: System.Reflection.AssemblyProductAttribute("OptoHelper")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OptoHelper")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.0.1.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.0.2.0")]
 [assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://github.com/lixiaobu-li/OptoHelper")]
 
 // 由 MSBuild WriteCodeFragment 类生成。
