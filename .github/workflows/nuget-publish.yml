@@ -1,0 +1,42 @@
+name: 发布到 NuGet
+
+on:
+  push:
+    tags:  # 只有当推送标签时才触发
+      - 'v*'  # 例如 v1.0.0, v1.1.0
+  workflow_dispatch:  # 允许在 GitHub 网页手动触发
+
+env:
+  NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
+
+jobs:
+  发布到nuget:
+    runs-on: ubuntu-latest  # 使用 Ubuntu 最新版作为运行环境
+
+    steps:
+    # 1. 检出代码
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    # 2. 设置 .NET 环境
+    - name: 设置 .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.x'  # 使用 .NET 8
+
+    # 3. 恢复依赖项
+    - name: 恢复依赖项
+      run: dotnet restore
+
+    # 4. 构建项目
+    - name: 构建
+      run: dotnet build --configuration Release --no-restore
+
+    # 5. 打包成 NuGet 包
+    - name: 打包 NuGet
+      run: dotnet pack --configuration Release --no-build --output ./nupkg
+
+    # 6. 发布到 NuGet.org
+    - name: 发布到 NuGet
+      run: dotnet nuget push ./nupkg/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
