@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<!-- 支持多个目标框架 -->
+		<TargetFrameworks>net48;netstandard2.0</TargetFrameworks>
+		<!-- 使用分号分隔 -->
+		<PackageId>AutomationHelper</PackageId>
+		<Version>1.0.0</Version>
+		<Authors>lixiaobu-li</Authors>
+		<Company>AutomationHelper</Company>
+		<Description>A modular .NET helper library with logging, IO, network and more.</Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<RepositoryUrl>https://github.com/lixiaobu-li/AutomationHelper</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageTags>logging;log;helper;utility;dotnet;csharp</PackageTags>
+		<OutputType>Library</OutputType>
+		<Nullable>enable</Nullable>
+		<LangVersion>8.0</LangVersion>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
+
+</Project>
