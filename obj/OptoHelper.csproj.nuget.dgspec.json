@@ -5,10 +5,10 @@
   },
   "projects": {
     "C:\\Users\\Administrator\\source\\repos\\OptoHelper\\OptoHelper.csproj": {
-      "version": "1.0.2",
+      "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\Administrator\\source\\repos\\OptoHelper\\OptoHelper.csproj",
-        "projectName": "OptoHelper",
+        "projectName": "AutomationHelper",
         "projectPath": "C:\\Users\\Administrator\\source\\repos\\OptoHelper\\OptoHelper.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Administrator\\source\\repos\\OptoHelper\\obj\\",

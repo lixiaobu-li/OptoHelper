@@ -11,15 +11,15 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("OptoHelper")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("AutomationHelper")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("A modular .NET helper library with logging, IO, network and more.")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.2.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.2+bc3b1c5f236b48c71a6618b81081da0787434ab1")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5df3e7eae689ee7b184b92db68285039237b00fe")]
 [assembly: System.Reflection.AssemblyProductAttribute("OptoHelper")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OptoHelper")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.0.2.0")]
-[assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://github.com/lixiaobu-li/OptoHelper")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
+[assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://github.com/lixiaobu-li/AutomationHelper")]
 
 // 由 MSBuild WriteCodeFragment 类生成。
 

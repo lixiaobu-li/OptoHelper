@@ -186,11 +186,11 @@
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "1.0.2",
+    "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\source\\repos\\OptoHelper\\OptoHelper.csproj",
-      "projectName": "OptoHelper",
-      "projectPath": "C:\\Users\\Administrator\\source\\repos\\OptoHelper\\OptoHelper.csproj",
+      "projectUniqueName": "C:\\Users\\Administrator\\source\\repos\\OptoHelper\\AutomationHelper.csproj",
+      "projectName": "AutomationHelper",
+      "projectPath": "C:\\Users\\Administrator\\source\\repos\\OptoHelper\\AutomationHelper.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Administrator\\source\\repos\\OptoHelper\\obj\\",
       "projectStyle": "PackageReference",

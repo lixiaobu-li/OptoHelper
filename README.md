@@ -1,7 +1,7 @@
-# OptoHelper
+# AutomationHelper
 
-[![NuGet Version](https://img.shields.io/nuget/v/OptoHelper.svg)](https://www.nuget.org/packages/OptoHelper)
-[![NuGet Downloads](https://img.shields.io/nuget/dt/OptoHelper.svg)](https://www.nuget.org/packages/OptoHelper)
+[![NuGet Version](https://img.shields.io/nuget/v/AutomationHelper.svg)](https://www.nuget.org/packages/AutomationHelper)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/AutomationHelper.svg)](https://www.nuget.org/packages/AutomationHelper)
 
 A modular .NET helper library with logging, IO, network and more.
 
@@ -9,10 +9,10 @@ A modular .NET helper library with logging, IO, network and more.
 
 ```bash
 # Package Manager
-Install-Package OptoHelper
+Install-Package AutomationHelper
 
 # .NET CLI
-dotnet add package OptoHelper
+dotnet add package AutomationHelper
 
 # PackageReference
-<PackageReference Include="OptoHelper" Version="1.0.2" />
+<PackageReference Include="AutomationHelper" Version="1.0.3" />
