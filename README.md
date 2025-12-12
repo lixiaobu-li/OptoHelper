@@ -15,4 +15,4 @@ Install-Package OptoHelper
 dotnet add package OptoHelper
 
 # PackageReference
-<PackageReference Include="OptoHelper" Version="1.0.0" />
+<PackageReference Include="OptoHelper" Version="1.0.1" />
