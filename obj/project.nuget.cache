@@ -1,18 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AMgDg9fiG9M=",
-  "success": false,
+  "dgSpecHash": "22TC1LGhhuY=",
+  "success": true,
   "projectFilePath": "C:\\Users\\Administrator\\source\\repos\\OptoHelper\\OptoHelper.csproj",
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "NU1301",
-      "level": "Error",
-      "message": "无法加载源 https://api.nuget.org/v3/index.json 的服务索引。\r\n  发送请求时出错。\r\n  基础连接已经关闭: 发送时发生错误。\r\n  由于远程方已关闭传输流，身份验证失败。",
-      "projectPath": "C:\\Users\\Administrator\\source\\repos\\OptoHelper\\OptoHelper.csproj",
-      "filePath": "C:\\Users\\Administrator\\source\\repos\\OptoHelper\\OptoHelper.csproj",
-      "libraryId": "NETStandard.Library",
-      "targetGraphs": []
-    }
-  ]
+  "logs": []
 }
