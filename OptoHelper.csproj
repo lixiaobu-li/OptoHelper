@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<!-- 目标框架 -->
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+		<!-- ============= 包基本信息 ============= -->
+		<PackageId>OptoHelper.Log</PackageId>
+		<Version>1.0.0</Version>
+		<Authors>Lytics</Authors>
+		<Company>OptoHelper</Company>
+		<Description>OptoHelper 的轻量级日志模块。支持同步和异步日志记录，带有自动清理功能。</Description>
+
+		<!-- ============= 重要：启用符号包 ============= -->
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+		<!-- ============= 包元数据 ============= -->
+		<PackageTags>log;logger;logging;OptoHelper;dotnet;csharp</PackageTags>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<RepositoryUrl>https://github.com/lixiaobu-li/OptoHelper</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+
+		<!-- ============= 文档生成 ============= -->
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+		<!-- ============= 其他优化设置 ============= -->
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageProjectUrl>https://github.com/lixiaobu-li/OptoHelper</PackageProjectUrl>
+	</PropertyGroup>
+
+	<!-- ============= 包含 README.md 到 NuGet 包 ============= -->
+	<ItemGroup>
+		<None Include="README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
+
+</Project>
