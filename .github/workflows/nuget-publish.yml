@@ -3,27 +3,42 @@ name: Publish to NuGet
 on:
   push:
     tags:
-      - 'v*'  # 当推送v开头的标签时触发发布
+      - 'v*'  # 当推送v开头的标签时触发
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write  # 重要：这是Trusted Publishing需要的
+      contents: read
+    
     steps:
-      - uses: actions/checkout@v4
-        
-      - name: Setup .NET
+      - name: 检出代码
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: 设置.NET环境
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.x'
           
-      - name: Restore dependencies
+      - name: 恢复依赖
         run: dotnet restore
         
-      - name: Build
+      - name: 构建项目
         run: dotnet build --configuration Release --no-restore
         
-      - name: Pack
-        run: dotnet pack --configuration Release --no-build --output ./nupkg
+      - name: 打包NuGet包
+        run: dotnet pack --configuration Release --no-build --output ./artifacts
         
-      - name: Publish to NuGet
-        run: dotnet nuget push ./nupkg/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+      - name: 发布到NuGet
+        run: |
+          # 获取最新的.nupkg文件
+          PACKAGE=$(ls ./artifacts/*.nupkg | head -1)
+          echo "发布包: $PACKAGE"
+          
+          # 使用OIDC认证（Trusted Publishing）
+          dotnet nuget push $PACKAGE \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate
