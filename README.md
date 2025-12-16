@@ -14,5 +14,11 @@ Install-Package AutomationHelper
 # .NET CLI
 dotnet add package AutomationHelper
 
+# Changelog
+2025-12-12 : The Log class now automatically creates the configuration file if it does not exist, 
+enabled by default, with a storage duration of seven days.
+
+2025-12-15 : Camera 
+
 # PackageReference
-<PackageReference Include="AutomationHelper" Version="1.0.3" />
+<PackageReference Include="AutomationHelper" Version="1.0.6" />

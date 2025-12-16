@@ -2,10 +2,10 @@
 
 	<PropertyGroup>
 		<!-- 支持多个目标框架 -->
-		<TargetFrameworks>net48;netstandard2.0</TargetFrameworks>
+		<TargetFrameworks>net48;netstandard2.0;net8.0</TargetFrameworks>
 		<!-- 使用分号分隔 -->
 		<PackageId>AutomationHelper</PackageId>
-		<Version>1.0.0</Version>
+		<Version>1.0.6</Version>
 		<Authors>lixiaobu-li</Authors>
 		<Company>AutomationHelper</Company>
 		<Description>A modular .NET helper library with logging, IO, network and more.</Description>
@@ -23,6 +23,17 @@
 
 	<ItemGroup>
 		<None Include="README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="System.Drawing.Common" Version="10.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="IO\" />
+	  <Folder Include="Modbus\" />
+	  <Folder Include="TcpServer\" />
+	  <Folder Include="TcpClient\" />
 	</ItemGroup>
 
 </Project>

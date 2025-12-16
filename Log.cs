@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 
-namespace AutomationHelper.Log
+namespace AutomationHelper
 {
     public static class Log
     {
@@ -21,8 +21,49 @@ namespace AutomationHelper.Log
         private static string IniPath =>
             Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "config.ini");
 
+        // ================================
+        //      配置文件检查与创建
+        // ================================
+        private static bool EnsureConfigFileExists()
+        {
+            if (!File.Exists(IniPath))
+            {
+                Console.WriteLine($"配置文件 {IniPath} 不存在，正在创建默认配置文件...");
+                CreateDefaultConfigFile();
+                return false;  // 文件不存在，已经创建
+            }
+            return true;  // 文件存在
+        }
+
+        private static void CreateDefaultConfigFile()
+        {
+            // 默认配置
+            var defaultConfig = "[Log]\n" +
+                                "EnableLog=true\n" +
+                                "SaveDays=7\n";
+
+            // 写入文件
+            try
+            {
+                File.WriteAllText(IniPath, defaultConfig, Encoding.UTF8);
+                Console.WriteLine($"配置文件 {IniPath} 已成功创建！");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"创建配置文件失败: {ex.Message}");
+            }
+        }
+
+        // ================================
+        //      读取 INI 配置项
+        // ================================
         private static string ReadIni(string section, string key, string defaultValue)
         {
+            if (!EnsureConfigFileExists())  // 如果配置文件不存在，创建文件
+            {
+                return defaultValue;  // 返回默认值
+            }
+
             var sb = new StringBuilder(255);
             GetPrivateProfileString(section, key, defaultValue, sb, sb.Capacity, IniPath);
             return sb.ToString();
